@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Башня из брусков — Математика с Дарьей</title>
+<style>
+:root{color-scheme:light;--bg:#f3f7f3;--paper:#fff;--ink:#183d32;--muted:#60736b;--line:#d9e5dd;--green:#285c49;--soft:#e7f1e9;--red:#e84945;--yellow:#f3ca42}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #dd92ad;outline-offset:3px}button{border:1px solid var(--line);border-radius:11px;padding:9px 14px;background:var(--paper);color:var(--ink);min-height:43px}button:hover{background:var(--soft)}button[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}button:disabled{opacity:.45;cursor:default}input[type=range]{accent-color:var(--green);width:100%}input[type=checkbox]{accent-color:var(--green);width:17px;height:17px}h1,h2,p{margin:0}h1{font-size:clamp(25px,4vw,36px);line-height:1.15;letter-spacing:-1px;font-weight:650}h2{font-size:18px;font-weight:600}.app{max-width:1160px;margin:auto;padding:28px 24px 36px}.brand{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-bottom:12px}.header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.subtitle{color:var(--muted);margin-top:10px;max-width:650px;font-size:14px}.modes{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}.stage-head{padding:18px 20px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.legend{display:flex;gap:14px;font-size:13px;color:var(--muted)}.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}.red{background:var(--red)}.yellow{background:var(--yellow)}.stage{height:520px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 76%,#e8f0e9 0,transparent 64%)}svg{display:block;width:100%;height:100%;touch-action:none;user-select:none}.hint{font-size:12px;color:var(--muted);text-align:center;padding:0 15px 12px}.views{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 18px 16px}.view{padding:9px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}.view span{font-size:12px}.view strong{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}.toolbar{padding:14px 20px;background:#f9fbf8;border-top:1px solid var(--line);display:flex;gap:15px;align-items:center;flex-wrap:wrap}.toolbar label{font-size:13px;display:flex;gap:7px;align-items:center}.zoom{flex:1;min-width:150px;max-width:240px}.zoom input{min-width:55px}.side{padding:20px}.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}.layer-nav{display:grid;grid-template-columns:43px 1fr 43px;align-items:center;gap:12px;margin:15px 0 4px}.layer-nav button{padding:6px}.layer-value{text-align:center;font-variant-numeric:tabular-nums}.layer-preview{height:185px;background:#f7faf6;border-radius:14px;margin:14px 0}.layer-info{font-size:14px;min-height:66px}.visibility{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:12px}.visibility div{padding:8px 9px;background:var(--soft);border-radius:9px;font-size:12px}.visibility b{font-weight:600;display:block;font-size:13px}.answers{border-top:1px solid var(--line);margin-top:20px;padding-top:17px}.answer{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:13px;border-bottom:1px solid #edf2ed}.answer b{font-size:20px;line-height:1.25;font-weight:600;font-variant-numeric:tabular-nums}.note{font-size:12px;color:var(--muted);margin-top:15px}.status{margin:16px 0 0;color:var(--muted);font-size:13px}details{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:15px 20px}summary{cursor:pointer;font-weight:600;font-size:14px}.explain{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:16px}.explain p{font-size:14px}.explain b{display:block;margin-bottom:7px;font-weight:600}.formula{margin-top:9px;color:var(--green);font-variant-numeric:tabular-nums}.footer{font-size:12px;color:var(--muted);margin-top:18px}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.header{align-items:start;flex-direction:column}.layout{grid-template-columns:minmax(0,1fr) 285px;gap:12px}.app{padding:20px 14px}.side{padding:17px}.stage{height:500px}.stage-head{flex-wrap:wrap}.legend{gap:10px}}
+@media(max-width:650px){.layout{grid-template-columns:1fr}.stage{height:470px}.side{padding:20px}.layer-preview{height:200px}.layer-info{min-height:0}.explain{grid-template-columns:1fr;gap:18px}.views{padding-left:12px;padding-right:12px;gap:5px}.view span{font-size:11px}.toolbar{gap:12px;padding:13px}.app{padding:18px 10px}.stage-head{padding-left:16px;padding-right:16px}.modes button{font-size:14px}.visibility{grid-template-columns:repeat(4,1fr)}.visibility div{padding:7px 4px;font-size:11px;text-align:center}.visibility b{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main class="app">
+ <div class="brand">МАТЕМАТИКА С ДАРЬЕЙ · ПРОСТРАНСТВЕННОЕ МЫШЛЕНИЕ</div>
+ <header class="header">
+  <div><h1>Башня из красных<br>и жёлтых брусков</h1><p class="subtitle">Поворачивайте башню и исследуйте один слой, чтобы увидеть, откуда берутся ответы.</p></div>
+  <div class="modes" role="group" aria-label="Выбор башни"><button id="full" aria-pressed="true">Задача · 24 слоя</button><button id="demo" aria-pressed="false">Пример · 3 слоя</button></div>
+ </header>
+ <div class="layout">
+  <section class="panel" aria-label="Интерактивная трёхмерная модель">
+   <div class="stage-head"><h2 id="scene-title">Башня из задачи</h2><div class="legend"><span><i class="dot red"></i>Красный</span><span><i class="dot yellow"></i>Жёлтый</span></div></div>
+   <div class="stage"><svg id="scene" role="img" aria-label="Вращаемая трёхмерная башня. Для фиксированного вида используйте кнопки под моделью."></svg></div>
+   <div class="hint" id="view-hint">Перетащите мышью или пальцем для вращения. Выбранный слой выделен контуром.</div>
+   <div class="views" role="group" aria-label="Красные бруски, видимые с каждой стороны">
+    <button class="view" data-side="F" aria-pressed="false"><span>Спереди</span><strong id="count-F">15</strong></button>
+    <button class="view" data-side="B" aria-pressed="false"><span>Сзади</span><strong id="count-B">14</strong></button>
+    <button class="view" data-side="L" aria-pressed="false"><span>Слева</span><strong id="count-L">20</strong></button>
+    <button class="view" data-side="R" aria-pressed="false"><span>Справа</span><strong id="count-R">23</strong></button>
+   </div>
+   <div class="toolbar"><button id="iso" aria-label="Вернуть объёмный вид">Объёмный вид</button><label><input id="solo" type="checkbox">Один слой</label><label><input id="explode" type="checkbox">Раздвинуть слои</label><label class="zoom">Масштаб <input id="zoom" type="range" min="70" max="240" value="100" aria-label="Масштаб модели"></label></div>
+  </section>
+  <aside class="panel side">
+   <div class="eyebrow">РАССМОТРИМ ПОБЛИЖЕ</div><h2>Один слой</h2>
+   <div class="layer-nav"><button id="prev" aria-label="Предыдущий слой">−</button><div id="layer-label" class="layer-value">Слой 1 из 24</div><button id="next" aria-label="Следующий слой">+</button></div>
+   <input id="layer" type="range" min="1" max="24" value="1" aria-label="Номер слоя снизу">
+   <div class="layer-preview"><svg id="layer-scene" role="img" aria-label="Выбранный слой крупным планом"></svg></div>
+   <p id="layer-info" class="layer-info"></p>
+   <div class="visibility" id="visibility" aria-label="Видимость красного бруска выбранного слоя"></div>
+   <div class="answers"><div class="eyebrow">ОТВЕТЫ ДЛЯ ЭТОЙ БАШНИ</div><div class="answer"><span>Высота башни</span><b id="height">24</b></div><div class="answer"><span>Красные спереди<br>гранью 1 × 2</span><b id="wide-red">10</b></div><div class="answer"><span>Жёлтые спереди<br>гранью 1 × 2</span><b id="wide-yellow">9</b></div></div>
+   <p class="note">Слои нумеруются снизу вверх. Числа под моделью относятся ко всей выбранной башне, даже в режиме «Один слой».</p>
+  </aside>
+ </div>
+ <p id="status" class="status" aria-live="polite"></p>
+ <details><summary>Почему получаются эти ответы?</summary><div class="explain"><div><b>1. Находим высоту</b><p>Каждый красный брусок виден с трёх боковых сторон. С четвёртой его закрывает жёлтый. В каждом слое один красный брусок.</p><p class="formula" id="height-formula"></p></div><div><b>2. Красные широкой гранью</b><p>Красный брусок, скрытый сзади, находится спереди широкой гранью. Считаем слои, где красного сзади не видно.</p><p class="formula" id="red-formula"></p></div><div><b>3. Жёлтые широкой гранью</b><p>В слое, где красного спереди не видно, весь передний край закрыт жёлтым бруском широкой гранью.</p><p class="formula" id="yellow-formula"></p></div></div></details>
+ <p class="footer">Это одна из возможных расстановок: условие определяет количества, но не порядок слоёв. Файл работает без интернета.</p>
+ <noscript><p>Для вращения модели включите JavaScript в браузере.</p></noscript>
+</main>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+// F/B/L/R: сторона, на которой красный брусок виден широкой гранью.
+const full=['F','B','R','F','B','F','B','R','F','B','F','B','L','F','B','R','F','B','F','B','R','F','B','F'];
+const sample=['F','L','B'];
+const names={F:'Спереди',B:'Сзади',L:'Слева',R:'Справа'},opposite={F:'B',B:'F',L:'R',R:'L'};
+const state={mode:'full',selected:1,yaw:35,pitch:18,zoom:1,solo:false,explode:false,side:null};
+const colors={red:['#ec514c','#c83735','#f77867'],yellow:['#f2cc45','#d3a923','#ffe17a']};
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const layers=()=>state.mode==='full'?full:sample;
+function counts(types){const c={F:0,B:0,L:0,R:0};for(const t of types)for(const s of Object.keys(c))if(s!==opposite[t])c[s]++;return c}
+function el(name,attrs,text){const n=document.createElementNS(NS,name);for(const [k,v]of Object.entries(attrs||{}))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n}
+function box(type,i,color,single=false){const red=color==='red',front=type==='F',back=type==='B',left=type==='L';let x=0,z=0,w=2,d=1;
+ if(front||back){z=(front?1:-1)*(red?1:-1)*.5}else{w=1;d=2;x=(left?-1:1)*(red?1:-1)*.5}
+ const gap=state.explode?.35:0,y=single?0:(i-(layers().length-1)/2)*(1+gap);
+ return {x,y,z,w,h:1,d,color,selected:i===state.selected-1,layer:i+1}}
+function draw(svg,boxes,yaw,pitch,zoom=1,mini=false){
+ const W=svg.clientWidth||300,H=svg.clientHeight||200;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.replaceChildren();
+ const a=yaw*Math.PI/180,b=pitch*Math.PI/180,ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
+ const camera=[sa*cb,sb,ca*cb],right=[ca,0,-sa],up=[-sa*sb,cb,-ca*sb];
+ const dot=(p,v)=>p[0]*v[0]+p[1]*v[1]+p[2]*v[2];
+ const project=p=>[dot(p,right),-dot(p,up),dot(p,camera)];
+ const faces=[],points=[];
+ for(const o of boxes){const x0=o.x-o.w/2,x1=o.x+o.w/2,y0=o.y-o.h/2,y1=o.y+o.h/2,z0=o.z-o.d/2,z1=o.z+o.d/2;
+ const defs=[{n:[0,0,1],p:[[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]],shade:0},{n:[0,0,-1],p:[[x1,y0,z0],[x0,y0,z0],[x0,y1,z0],[x1,y1,z0]],shade:0},{n:[1,0,0],p:[[x1,y0,z1],[x1,y0,z0],[x1,y1,z0],[x1,y1,z1]],shade:1},{n:[-1,0,0],p:[[x0,y0,z0],[x0,y0,z1],[x0,y1,z1],[x0,y1,z0]],shade:1},{n:[0,1,0],p:[[x0,y1,z1],[x1,y1,z1],[x1,y1,z0],[x0,y1,z0]],shade:2},{n:[0,-1,0],p:[[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]],shade:1}];
+ for(const f of defs){const ps=f.p.map(project);points.push(...ps);const internal=(o.z!==0&&f.n[2]*o.z<0)||(o.x!==0&&f.n[0]*o.x<0);if(!internal&&dot(f.n,camera)>1e-7)faces.push({ps,depth:ps.reduce((s,p)=>s+p[2],0)/4,fill:colors[o.color][f.shade],selected:o.selected,layer:o.layer,color:o.color})}}
+ let minx=Math.min(...points.map(p=>p[0])),maxx=Math.max(...points.map(p=>p[0])),miny=Math.min(...points.map(p=>p[1])),maxy=Math.max(...points.map(p=>p[1]));
+ const margin=mini?28:48,scale=Math.min((W-2*margin)/(maxx-minx),(H-2*margin)/(maxy-miny),mini?85:145)*zoom;
+ const cx=(minx+maxx)/2,cy=(miny+maxy)/2;
+ const screen=p=>[(p[0]-cx)*scale+W/2,(p[1]-cy)*scale+H/2];
+ faces.sort((f,g)=>f.depth-g.depth);
+ for(const f of faces){const p=el('polygon',{points:f.ps.map(screen).map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.selected&&!mini?'#173f32':'#764e24','stroke-width':f.selected&&!mini?2.1:.85,'stroke-linejoin':'round','data-layer':f.layer,'data-color':f.color});p.append(el('title',{},`Слой ${f.layer}: ${f.color==='red'?'красный':'жёлтый'} брусок`));svg.append(p)}
+ if(!mini){const label=state.solo?`Слой ${state.selected}`:state.side?`Вид ${names[state.side].toLowerCase()}`:'Объёмный вид';svg.append(el('text',{x:18,y:24,fill:'#60736b','font-size':13},label));}
+}
+function render(){const ts=layers(),i=state.selected-1,bs=[];for(let j=0;j<ts.length;j++)if(!state.solo||j===i)for(const c of ['red','yellow'])bs.push(box(ts[j],j,c,state.solo));draw($('scene'),bs,state.yaw,state.pitch,state.zoom);draw($('layer-scene'),['red','yellow'].map(c=>box(ts[i],i,c,true)),state.yaw,state.pitch,1,true)}
+function update(){const ts=layers(),c=counts(ts),t=ts[state.selected-1],n=ts.length,wide=ts.filter(x=>x==='F').length,yellow=ts.filter(x=>x==='B').length;
+ $('full').setAttribute('aria-pressed',state.mode==='full');$('demo').setAttribute('aria-pressed',state.mode==='demo');$('scene-title').textContent=state.mode==='full'?'Башня из задачи':'Учебный пример';
+ for(const s of Object.keys(c)){$('count-'+s).textContent=c[s];document.querySelector(`[data-side=${s}]`).setAttribute('aria-pressed',state.side===s)}
+ $('height').textContent=n;$('wide-red').textContent=wide;$('wide-yellow').textContent=yellow;
+ $('layer').max=n;$('layer').value=state.selected;$('layer-label').textContent=`Слой ${state.selected} из ${n}`;$('prev').disabled=state.selected===1;$('next').disabled=state.selected===n;
+ const descriptions={F:'Красный спереди широкой гранью. Сзади он полностью скрыт жёлтым.',B:'Жёлтый спереди широкой гранью. Красный сзади, поэтому спереди его не видно.',L:'Красный слева широкой гранью. Спереди и сзади видны короткие грани обоих брусков.',R:'Красный справа широкой гранью. Спереди и сзади видны короткие грани обоих брусков.'};
+ $('layer-info').textContent=descriptions[t];$('visibility').replaceChildren();for(const s of ['F','B','L','R']){const d=document.createElement('div');d.textContent=names[s];const b=document.createElement('b');b.textContent=s===opposite[t]?'Красный скрыт':s===t?'Грань 1 × 2':'Грань 1 × 1';d.append(b);$('visibility').append(d)}
+ $('height-formula').textContent=`(${c.F} + ${c.B} + ${c.L} + ${c.R}) : 3 = ${n}`;$('red-formula').textContent=`${n} − ${c.B} = ${wide}`;$('yellow-formula').textContent=`${n} − ${c.F} = ${yellow}`;
+ $('status').textContent=state.mode==='full'?'Проверка модели: спереди 15, сзади 14, слева 20, справа 23 красных бруска.':'В этом примере 3 слоя: спереди 2, сзади 2, слева 3, справа 2 красных бруска.';
+ render();}
+ function setMode(mode){state.mode=mode;state.selected=1;state.zoom=1;$('zoom').value=100;update()}
+ $('full').addEventListener('click',()=>setMode('full'));$('demo').addEventListener('click',()=>setMode('demo'));
+ document.querySelectorAll('[data-side]').forEach(btn=>btn.addEventListener('click',()=>{state.side=btn.dataset.side;state.yaw={F:0,B:180,L:-90,R:90}[state.side];state.pitch=0;update()}));
+ $('iso').addEventListener('click',()=>{state.yaw=35;state.pitch=18;state.side=null;update()});
+ $('layer').addEventListener('input',e=>{state.selected=Number(e.target.value);update()});
+ $('prev').addEventListener('click',()=>{state.selected=Math.max(1,state.selected-1);update()});$('next').addEventListener('click',()=>{state.selected=Math.min(layers().length,state.selected+1);update()});
+ $('solo').addEventListener('change',e=>{state.solo=e.target.checked;render()});$('explode').addEventListener('change',e=>{state.explode=e.target.checked;render()});$('zoom').addEventListener('input',e=>{state.zoom=Number(e.target.value)/100;render()});
+ let drag=null,scheduled=false;function requestRender(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;render()})}
+ for(const svg of [$('scene'),$('layer-scene')]){svg.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,yaw:state.yaw,pitch:state.pitch};svg.setPointerCapture(e.pointerId)});svg.addEventListener('pointermove',e=>{if(!drag)return;state.yaw=drag.yaw+(e.clientX-drag.x)*.5;state.pitch=clamp(drag.pitch+(e.clientY-drag.y)*.35,-75,75);state.side=null;document.querySelectorAll('[data-side]').forEach(b=>b.setAttribute('aria-pressed','false'));requestRender()});svg.addEventListener('pointerup',()=>{drag=null});svg.addEventListener('pointercancel',()=>{drag=null})}
+ new ResizeObserver(requestRender).observe($('scene'));new ResizeObserver(requestRender).observe($('layer-scene'));
+ const c=counts(full);if(full.length!==24||c.F!==15||c.B!==14||c.L!==20||c.R!==23||full.filter(t=>t==='F').length!==10||full.filter(t=>t==='B').length!==9)throw new Error('Неверная расстановка брусков');
+ window.towerModel={counts,full:[...full],sample:[...sample],state};update();
+})();
+</script>
+</body>
+</html>
